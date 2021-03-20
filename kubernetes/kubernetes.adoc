@@ -164,6 +164,7 @@ $ kubectl logs <podName>
 # print logs for a single container
 $ kubectl logs sample-pod
 # print logs for a specified container
+$ kubectl logs sample-pod -c sample-container
 ....
 
 ==== Copy File and Directory to and from Container
