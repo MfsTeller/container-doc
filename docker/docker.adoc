@@ -19,8 +19,8 @@
 
 === Reference
 
-* [青山真也 (2020) Kubernetes 完全ガイド, 株式会社インプレス](https://book.impress.co.jp/books/1119101148)
-* [Dockerfileのベストプラクティス](https://docs.docker.jp/develop/develop-images/dockerfile_best-practices.html)
+* https://book.impress.co.jp/books/1119101148[青山真也 (2020) Kubernetes 完全ガイド, 株式会社インプレス]
+* https://docs.docker.jp/develop/develop-images/dockerfile_best-practices.html[Dockerfileのベストプラクティス]
 
 === Docker Container Design
 

@@ -19,8 +19,8 @@
 
 === Reference
 
-* [青山真也 (2020) Kubernetes 完全ガイド, 株式会社インプレス](https://book.impress.co.jp/books/1119101148)
-* [kubectl](https://kubernetes.io/ja/docs/reference/kubectl/overview/)
+* https://book.impress.co.jp/books/1119101148[青山真也 (2020) Kubernetes 完全ガイド, 株式会社インプレス]
+* https://kubernetes.io/ja/docs/reference/kubectl/overview/[kubectl]
 
 === Steps to Using Kubernetes
 
