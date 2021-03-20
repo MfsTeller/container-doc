@@ -1,0 +1,24 @@
+:lang: ja
+:doctype: book
+:toc: left
+:toclevels: 3
+:toc-title: 目次
+:sectnums:
+:sectnumlevels: 4
+:sectlinks:
+:imagesdir: ./_images
+:icons: font
+:source-highlighter: coderay
+:example-caption: 例
+:table-caption: 表
+:figure-caption: 図
+:author: Learner
+:revnumber: 0.1
+:revdate: 2021/01/17
+
+== Kubernetes
+
+=== Reference
+
+* https://book.impress.co.jp/books/1119101148[青山真也 (2020) Kubernetes 完全ガイド, 株式会社インプレス]
+

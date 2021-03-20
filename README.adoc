@@ -1,0 +1,31 @@
+:lang: ja
+:doctype: book
+:toc: left
+:toclevels: 3
+:toc-title: 目次
+:sectnums:
+:sectnumlevels: 4
+:sectlinks:
+:imagesdir: ./_images
+:icons: font
+:source-highlighter: coderay
+:example-caption: 例
+:table-caption: 表
+:figure-caption: 図
+:author: Learner
+:revnumber: 0.1
+:revdate: 2021/01/17
+
+= container-doc
+
+== Background
+
+* 限られた業務時間の中で難解な最新技術を理解・活用することは難しい
+
+== Purpose
+
+* コンテナ技術を短ルートで理解・利用する
+
+include::docker/docker.adoc[]
+include::docker-compose/docker-compose.adoc[]
+//include::docker/docker.adoc[]
