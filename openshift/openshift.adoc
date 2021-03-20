@@ -26,18 +26,16 @@
 . OpenShift Resourceの定義YAMLを作成する
 . OpenShift Resourceの定義YAMLを適用する
 
-=== Kubernetes CLI kubectl
-
-* クラスタを手動で操作する場合にはkubectlを利用することが一般的である
+=== OpenShift CLI oc
 
 ==== Create Resource
 
-* リソースは `kubectl create` コマンドを利用して生成する
+* リソースは `oc create` コマンドを利用して生成する
 
 ....
-$ kubectl create -f <manifest>
+$ oc create -f <manifest>
 [Example]
-$ kubectl create -f pod.yaml
+$ oc create -f pod.yaml
 ....
 
 ==== Get Resource
