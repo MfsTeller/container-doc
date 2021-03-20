@@ -7,8 +7,8 @@
 
 ### Steps to Using Kubernetes
 
-. Kubernetes Resourceの定義YAMLを作成する
-. Kubernetes Resourceの定義YAMLを適用する
+1. Kubernetes Resourceの定義YAMLを作成する
+1. Kubernetes Resourceの定義YAMLを適用する
 
 ### Kubernetes Resource
 
@@ -23,54 +23,54 @@
 #### Workloads APIs
 
 * Kubernetesクラスタ上にコンテナを起動するためのリソースである
-** Pod
-** ReplicationController
-** ReplicaSet
-** Deployment
-** Daemonset
-** StatefulSet
-** Job
-** CronJob
+  * Pod
+  * ReplicationController
+  * ReplicaSet
+  * Deployment
+  * Daemonset
+  * StatefulSet
+  * Job
+  * CronJob
 
 #### Service APIs
 
 * コンテナのサービスディスカバリやクラスタ外部からのアクセスを可能とするためのエンドポイントを提供するリソースである
-** Service
-*** ClusterIP
-*** NodePort
-*** LoadBalancer
-*** Headless
-*** ExternalName
-** Ingress
+  * Service
+    * ClusterIP
+    * NodePort
+    * LoadBalancer
+    * Headless
+    * ExternalName
+  * Ingress
 
 #### Config & Storage APIs
 
 * 設定や機密データのコンテナへの埋め込みや、永続ボリュームを提供するリソースである
-** Secret
-** ConfigMap
-** PersistentVolumeClaim
+  * Secret
+  * ConfigMap
+  * PersistentVolumeClaim
 
 #### Cluster APIs
 
 * クラスタ自体の振る舞いを定義するリソースである
-** Node
-** Namespace
-** PersistentVolume
-** ResourceQuota
-** ServiceAccount
-** Role
-** ClusterRole
-** RoleBinding
-** ClusterRoleBinding
-** NetworkPolicy
+  * Node
+  * Namespace
+  * PersistentVolume
+  * ResourceQuota
+  * ServiceAccount
+  * Role
+  * ClusterRole
+  * RoleBinding
+  * ClusterRoleBinding
+  * NetworkPolicy
 
 #### Metadata APIs
 
 * クラスタ内の他のリソースを制御するためのリソースである
-** LimitRange
-** HorizontalPodAutoscaler
-** PodDisruptionBudget
-** CustomeResourceDefiniton
+  * LimitRange
+  * HorizontalPodAutoscaler
+  * PodDisruptionBudget
+  * CustomeResourceDefiniton
 
 ### Kubernetes CLI kubectl
 
@@ -165,9 +165,9 @@ $ kubectl cp ./hostname sample-pod:/tmp/newfile
 #### Debug Pod
 
 * Podが起動しないとき、以下の方法でデバッグする
-** アプリケーション側に問題があるとき `kubectl logs` コマンドを利用する
-** Kubernetesの設定やリソースの設定に問題があるとき `kubectl describe` コマンドを利用する
-** コンテナ内の環境やアプリケーションに問題があるとき `kubectl run` コマンドを利用し、ENTRYPOINTを上書きする
+  * アプリケーション側に問題があるとき `kubectl logs` コマンドを利用する
+  * Kubernetesの設定やリソースの設定に問題があるとき `kubectl describe` コマンドを利用する
+  * コンテナ内の環境やアプリケーションに問題があるとき `kubectl run` コマンドを利用し、ENTRYPOINTを上書きする
 
 ~~~
 $ kubectl run --image=<image> --restart=Never --rm -ti <podName> --command -- /bin/sh
@@ -289,7 +289,7 @@ $ kubectl delete -f pod.yaml
 #### Remove Namespace
 
 * Namespaceを削除する
-** このときNamespaecに紐づく全てのリソースが削除される
+  * このときNamespaecに紐づく全てのリソースが削除される
 
 ~~~
 $ kubectl delete -f mynamespace.yaml

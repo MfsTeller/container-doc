@@ -6,8 +6,8 @@
 
 ### Steps to Using OpenShift
 
-. OpenShift Resourceの定義YAMLを作成する
-. OpenShift Resourceの定義YAMLを適用する
+1. OpenShift Resourceの定義YAMLを作成する
+1. OpenShift Resourceの定義YAMLを適用する
 
 ### Kubernetes CLI kubectl
 
@@ -102,9 +102,9 @@ $ kubectl cp ./hostname sample-pod:/tmp/newfile
 #### Debug Pod
 
 * Podが起動しないとき、以下の方法でデバッグする
-** アプリケーション側に問題があるとき `kubectl logs` コマンドを利用する
-** Kubernetesの設定やリソースの設定に問題があるとき `kubectl describe` コマンドを利用する
-** コンテナ内の環境やアプリケーションに問題があるとき `kubectl run` コマンドを利用し、ENTRYPOINTを上書きする
+  * アプリケーション側に問題があるとき `kubectl logs` コマンドを利用する
+  * Kubernetesの設定やリソースの設定に問題があるとき `kubectl describe` コマンドを利用する
+  * コンテナ内の環境やアプリケーションに問題があるとき `kubectl run` コマンドを利用し、ENTRYPOINTを上書きする
 
 ~~~
 $ kubectl run --image=<image> --restart=Never --rm -ti <podName> --command -- /bin/sh
@@ -226,7 +226,7 @@ $ kubectl delete -f pod.yaml
 #### Remove Namespace
 
 * Namespaceを削除する
-** このときNamespaecに紐づく全てのリソースが削除される
+  * このときNamespaecに紐づく全てのリソースが削除される
 
 ~~~
 $ kubectl delete -f mynamespace.yaml

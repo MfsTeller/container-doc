@@ -6,9 +6,9 @@
 
 ### Steps to Using Docker Compose
 
-. Dockerfileを作成する
-. docker-compose.yml にアプリケーションを構成するサービスを定義する
-. `docker-compose up` を実行する
+1. Dockerfileを作成する
+1. docker-compose.yml にアプリケーションを構成するサービスを定義する
+1. `docker-compose up` を実行する
 
 ### docker-compose.yml
 

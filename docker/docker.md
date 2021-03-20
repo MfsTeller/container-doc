@@ -8,12 +8,12 @@
 ### Docker Container Design
 
 * Dockerコンテナを生成する際は下記に留意する
-** 1コンテナにつき1プロセスにする
-** Immutable Infrastructureなイメージにする
-*** 環境を変更する際は、古い環境を破棄して新たに作成する
-*** 一度作られた環境は変更されないことを徹底する
-** 軽量なDockerイメージにする
-** 実行ユーザーをroot以外にする
+  * 1コンテナにつき1プロセスにする
+  * Immutable Infrastructureなイメージにする
+    * 環境を変更する際は、古い環境を破棄して新たに作成する
+    * 一度作られた環境は変更されないことを徹底する
+  * 軽量なDockerイメージにする
+  * 実行ユーザーをroot以外にする
 
 ### Dockerfile
 
@@ -80,7 +80,7 @@ $ docker image prune
 ### Push Docker Image to Docker Registry
 
 * DockerレジストリはDockerイメージを保存するリポジトリサーバーである
-** e.g. Docker-Hub, Azure Container Registry (ACR)
+  * e.g. Docker-Hub, Azure Container Registry (ACR)
 * Docker-Hubには数多くのDockerイメージが公開されているが、公式イメージ(OFFICIAL REPOSITORY)の利用を推奨する
 * DockerレジストリにDockerイメージをプッシュするためには、イメージ名を下記のフォーマットにする
 
