@@ -25,7 +25,7 @@
 
 === Docker Container Design
 
-* Dockerコンテナを生成する際は下記に留意する必要がある
+* Dockerコンテナを生成する際は下記に留意する
 ** 1コンテナにつき1プロセスにする
 ** Immutable Infrastructureなイメージにする
 *** 環境を変更する際は、古い環境を破棄して新たに作成する

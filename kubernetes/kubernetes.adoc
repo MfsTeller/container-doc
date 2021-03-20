@@ -22,3 +22,4 @@
 
 * https://book.impress.co.jp/books/1119101148[青山真也 (2020) Kubernetes 完全ガイド, 株式会社インプレス]
 
+// === 
