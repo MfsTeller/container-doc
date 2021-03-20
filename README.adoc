@@ -26,6 +26,9 @@
 * コンテナ技術を短ルートで理解・利用できるドキュメントを作成する
 
 include::docker/docker.adoc[]
+
 include::docker-compose/docker-compose.adoc[]
+
 include::kubernetes/kubernetes.adoc[]
+
 include::openshift/openshift.adoc[]
