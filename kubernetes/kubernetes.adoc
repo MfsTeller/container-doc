@@ -1,155 +1,176 @@
+:lang: ja
+:doctype: book
+:toc: left
+:toclevels: 3
+:toc-title: 目次
+:sectnums:
+:sectnumlevels: 4
+:sectlinks:
+:imagesdir: ./_images
+:icons: font
+:source-highlighter: coderay
+:example-caption: 例
+:table-caption: 表
+:figure-caption: 図
+:author: Learner
+:revnumber: 0.1
+
 ## Kubernetes
 
-### Reference
+=== Reference
 
 * [青山真也 (2020) Kubernetes 完全ガイド, 株式会社インプレス](https://book.impress.co.jp/books/1119101148)
 * [kubectl](https://kubernetes.io/ja/docs/reference/kubectl/overview/)
 
-### Steps to Using Kubernetes
+=== Steps to Using Kubernetes
 
-1. Kubernetes Resourceの定義YAMLを作成する
-1. Kubernetes Resourceの定義YAMLを適用する
+. Kubernetes Resourceの定義YAMLを作成する
+. Kubernetes Resourceの定義YAMLを適用する
 
-### Kubernetes Resource
+=== Kubernetes Resource
 
-|Category|Overview
-|:--|:--
-|Workloads APIs|コンテナの実行に関するリソース
-|Service APIs|コンテナを外部公開するようなエンドポイントを提供するリソース
+[cols="1,1", options="header"]
+|===
+|Category
+|Overview
+
+|Workloads APIs       |コンテナの実行に関するリソース
+|Service APIs         |コンテナを外部公開するようなエンドポイントを提供するリソース
 |Config & Storage APIs|設定/機密情報/永続化ボリュームなどに関するリソース
-|Cluster APIs|セキュリティやクォータなどに関するリソース
-|Metadata APIs|クラスタ内の他リソースを操作するためのリソース
+|Cluster APIs         |セキュリティやクォータなどに関するリソース
+|Metadata APIs        |クラスタ内の他リソースを操作するためのリソース
+|===
 
-#### Workloads APIs
+==== Workloads APIs
 
 * Kubernetesクラスタ上にコンテナを起動するためのリソースである
-  * Pod
-  * ReplicationController
-  * ReplicaSet
-  * Deployment
-  * Daemonset
-  * StatefulSet
-  * Job
-  * CronJob
+** Pod
+** ReplicationController
+** ReplicaSet
+** Deployment
+** Daemonset
+** StatefulSet
+** Job
+** CronJob
 
-#### Service APIs
+==== Service APIs
 
 * コンテナのサービスディスカバリやクラスタ外部からのアクセスを可能とするためのエンドポイントを提供するリソースである
-  * Service
-    * ClusterIP
-    * NodePort
-    * LoadBalancer
-    * Headless
-    * ExternalName
-  * Ingress
+** Service
+*** ClusterIP
+*** NodePort
+*** LoadBalancer
+*** Headless
+*** ExternalName
+** Ingress
 
-#### Config & Storage APIs
+==== Config & Storage APIs
 
 * 設定や機密データのコンテナへの埋め込みや、永続ボリュームを提供するリソースである
-  * Secret
-  * ConfigMap
-  * PersistentVolumeClaim
+** Secret
+** ConfigMap
+** PersistentVolumeClaim
 
-#### Cluster APIs
+==== Cluster APIs
 
 * クラスタ自体の振る舞いを定義するリソースである
-  * Node
-  * Namespace
-  * PersistentVolume
-  * ResourceQuota
-  * ServiceAccount
-  * Role
-  * ClusterRole
-  * RoleBinding
-  * ClusterRoleBinding
-  * NetworkPolicy
+** Node
+** Namespace
+** PersistentVolume
+** ResourceQuota
+** ServiceAccount
+** Role
+** ClusterRole
+** RoleBinding
+** ClusterRoleBinding
+** NetworkPolicy
 
-#### Metadata APIs
+==== Metadata APIs
 
 * クラスタ内の他のリソースを制御するためのリソースである
-  * LimitRange
-  * HorizontalPodAutoscaler
-  * PodDisruptionBudget
-  * CustomeResourceDefiniton
+** LimitRange
+** HorizontalPodAutoscaler
+** PodDisruptionBudget
+** CustomeResourceDefiniton
 
-### Kubernetes CLI kubectl
+=== Kubernetes CLI kubectl
 
 * クラスタを手動で操作する場合にはkubectlを利用することが一般的である
 
-#### Create Resource
+==== Create Resource
 
 * リソースは `kubectl create` コマンドを利用して生成する
 
-~~~
+....
 $ kubectl create -f <manifest>
 [Example]
 $ kubectl create -f pod.yaml
-~~~
+....
 
-#### Get Resource
+==== Get Resource
 
 * リソースの情報は `kubectl get` コマンドを利用して取得する
 
-~~~
+....
 $ kubectl get <kind>
 [Example]
 $ kubectl get pods
-~~~
+....
 
 * 特定の名前のリソースを取得するには `<resourceName>` を指定する
 
-~~~
+....
 $ kubectl get <kind> <resourceName>
 [Example]
 $ kubectl get pods sample-pod
-~~~
+....
 
 * リソースの状態を監視するには `--watch` を指定する
 
-~~~
+....
 $ kubectl get pods --watch
-~~~
+....
 
-#### Get Resource Detail
+==== Get Resource Detail
 
 * リソースの詳細情報は `kubectl describe` コマンドを利用して取得する
 
-~~~
+....
 $ kubectl describe <kind> <resourceName>
 [Example]
 $ kubectl describe pods sample-pod
-~~~
+....
 
-#### Execute Command in a Running Container
+==== Execute Command in a Running Container
 
 * Pod内の特定のコンテナ上でコマンドを実行するには `kubectl exec` コマンドを利用する
 
-~~~
+....
 [Example]
 # env command
 $ kubectl exec -ti sample-pod -- env
 
 # login container
 $ kubectl exec -ti sample-pod -- /bin/sh
-~~~
+....
 
-#### Print Log for a Running Container
+==== Print Log for a Running Container
 
 * Pod内のコンテナのログを出力するには `kubectl logs` コマンドを利用する
 
-~~~
+....
 $ kubectl logs <podName>
 [Example]
 # print logs for a single container
 $ kubectl logs sample-pod
 # print logs for a specified container
-~~~
+....
 
-#### Copy File and Directory to and from Container
+==== Copy File and Directory to and from Container
 
 * コンテナとローカルマシン間でファイルをコピーするには `kubectl cp` コマンドを利用する
 
-~~~
+....
 [Copy from Container]
 $ kubectl cp <podName>:<containerFilePath>
  <localFilePath>
@@ -160,78 +181,78 @@ $ kubectl cp sample-pod:etc/hostname ./hostname
 $ kubectl cp  <localFilePath> <podName>:<containerFilePath> 
 [Example]
 $ kubectl cp ./hostname sample-pod:/tmp/newfile
-~~~
+....
 
-#### Debug Pod
+==== Debug Pod
 
 * Podが起動しないとき、以下の方法でデバッグする
-  * アプリケーション側に問題があるとき `kubectl logs` コマンドを利用する
-  * Kubernetesの設定やリソースの設定に問題があるとき `kubectl describe` コマンドを利用する
-  * コンテナ内の環境やアプリケーションに問題があるとき `kubectl run` コマンドを利用し、ENTRYPOINTを上書きする
+** アプリケーション側に問題があるとき `kubectl logs` コマンドを利用する
+** Kubernetesの設定やリソースの設定に問題があるとき `kubectl describe` コマンドを利用する
+** コンテナ内の環境やアプリケーションに問題があるとき `kubectl run` コマンドを利用し、ENTRYPOINTを上書きする
 
-~~~
+....
 $ kubectl run --image=<image> --restart=Never --rm -ti <podName> --command -- /bin/sh
 [Example]
 $ kubectl run --image=nginx:1.16 --restart=Never --rm -ti sample-pod --command -- /bin/sh
-~~~
+....
 
 
-#### Update Resource
+==== Update Resource
 
 * リソースは `kubectl apply` コマンドを利用して更新する
 
-~~~
+....
 $ kubectl apply -f <manifest>
-~~~
+....
 
-#### Edit Resource
+==== Edit Resource
 
 * デプロイ済みのリソースは `kubectl edit` コマンドを利用して編集する
 
-~~~
+....
 $ kubectl edit <kind> <resourceName>
-~~~
+....
 
-#### Remove Resource
+==== Remove Resource
 
 * リソースは `kubectl delete` コマンドを利用して削除する
 
-~~~
+....
 $ kubectl delete -f <manifest>
-~~~
+....
 
-### Get Hands-On Practice
+=== Get Hands-On Practice
 
-#### Create Namespace
+==== Create Namespace
 
 * Namespaceはクラスタを仮想的に分離する
 
-~~~
+....
 # mynamespace.yaml
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
   name: mynamespace
-~~~
+....
 
-~~~
+....
 $ kubectl apply -f mynamespace.yaml
-~~~
+....
 
-#### List Namespace
+==== List Namespace
 
 * Namespaceを表示する
 
-~~~
+....
 $ kubectl get namespaces
-~~~
+....
 
-#### Create Pod
+==== Create Pod
 
 * Podを作成する
 
-~~~
+....
 # pod.yaml
 ---
 apiVersion: v1
@@ -248,50 +269,50 @@ spec:
     image: busybox
     name: busybox
   restartPolicy: Never
-~~~
+....
 
-~~~
+....
 $ kubectl apply -f pod.yaml
-~~~
+....
 
-#### Get Pod
+==== Get Pod
 
 * Podの情報を取得する
 
-~~~
+....
 $ kubectl get pods busybox -n mynamespace
-~~~
+....
 
-#### Get Pod Detail
+==== Get Pod Detail
 
 * Podの詳細情報を取得する
 
-~~~
+....
 $ kubectl describe pod busybox -n mynamespace
-~~~
+....
 
-#### Execute Command in a Running Container
+==== Execute Command in a Running Container
 
 * Pod内のコンテナにログインする
 
-~~~
+....
 $ kubectl exec -ti busybox -n mynamespace -- /bin/sh
-~~~
+....
 
-#### Remove Pod
+==== Remove Pod
 
 * Podを削除する
 
-~~~
+....
 $ kubectl delete -f pod.yaml
-~~~
+....
 
-#### Remove Namespace
+==== Remove Namespace
 
 * Namespaceを削除する
-  * このときNamespaecに紐づく全てのリソースが削除される
+** このときNamespaecに紐づく全てのリソースが削除される
 
-~~~
+....
 $ kubectl delete -f mynamespace.yaml
-~~~
+....
 
