@@ -14,7 +14,6 @@
 :figure-caption: 図
 :author: Learner
 :revnumber: 0.1
-:revdate: 2021/01/17
 
 == Kubernetes
 
@@ -22,4 +21,77 @@
 
 * https://book.impress.co.jp/books/1119101148[青山真也 (2020) Kubernetes 完全ガイド, 株式会社インプレス]
 
-// === 
+=== Kubernetes Resource
+
+[cols="1,1", options="header"]
+|===
+|Category
+|Overview
+
+|Workloads APIs
+|コンテナの実行に関するリソース
+
+|Service APIs
+|コンテナを外部公開するようなエンドポイントを提供するリソース
+
+|Config & Storage APIs
+|設定/機密情報/永続化ボリュームなどに関するリソース
+
+|Cluster APIs
+|セキュリティやクォータなどに関するリソース
+
+|Metadata APIs
+|クラスタ内の他リソースを操作するためのリソース
+|===
+
+==== Workloads APIs
+
+* Kubernetesクラスタ上にコンテナを起動するためのリソースである
+** Pod
+** ReplicationController
+** ReplicaSet
+** Deployment
+** Daemonset
+** StatefulSet
+** Job
+** CronJob
+
+==== Service APIs
+
+* コンテナのサービスディスカバリやクラスタ外部からのアクセスを可能とするためのエンドポイントを提供するリソースである
+** Service
+*** ClusterIP
+*** NodePort
+*** LoadBalancer
+*** Headless
+*** ExternalName
+** Ingress
+
+==== Config & Storage APIs
+
+* 設定や機密データのコンテナへの埋め込みや、永続ボリュームを提供するリソースである
+** Secret
+** ConfigMap
+** PersistentVolumeClaim
+
+==== Cluster APIs
+
+* クラスタ自体の振る舞いを定義するリソースである
+** Node
+** Namespace
+** PersistentVolume
+** ResourceQuota
+** ServiceAccount
+** Role
+** ClusterRole
+** RoleBinding
+** ClusterRoleBinding
+** NetworkPolicy
+
+==== Metadata APIs
+
+* クラスタ内の他のリソースを制御するためのリソースである
+** LimitRange
+** HorizontalPodAutoscaler
+** PodDisruptionBudget
+** CustomeResourceDefiniton

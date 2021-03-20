@@ -14,7 +14,6 @@
 :figure-caption: 図
 :author: Learner
 :revnumber: 0.1
-:revdate: 2021/01/17
 
 == Docker Compose
 
