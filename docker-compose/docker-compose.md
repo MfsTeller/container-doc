@@ -1,38 +1,21 @@
-:lang: ja
-:doctype: book
-:toc: left
-:toclevels: 3
-:toc-title: 目次
-:sectnums:
-:sectnumlevels: 4
-:sectlinks:
-:imagesdir: ./_images
-:icons: font
-:source-highlighter: coderay
-:example-caption: 例
-:table-caption: 表
-:figure-caption: 図
-:author: Learner
-:revnumber: 0.1
+## Docker Compose
 
-== Docker Compose
+### Reference
 
-=== Reference
+* [Docker Compose](https://docs.docker.jp/compose/toc.html)
 
-* https://docs.docker.jp/compose/toc.html[Docker Compose]
-
-=== Steps to Using Docker Compose
+### Steps to Using Docker Compose
 
 . Dockerfileを作成する
 . docker-compose.yml にアプリケーションを構成するサービスを定義する
 . `docker-compose up` を実行する
 
-=== docker-compose.yml
+### docker-compose.yml
 
 * Docker Composeは `docker-compose.yml` を基にサービスを構築する
 * 以下はpostgresイメージを利用する例である
 
-....
+~~~
 version: '3'
 services:
   postgres:
@@ -48,53 +31,53 @@ services:
     tty: true
     volumes:
       - ./initdb:/docker-entrypoint-initdb.d
-....
+~~~
 
-=== Start Docker-Compose Service
+### Start Docker-Compose Service
 
 * Docker Composeサービスは `docker-compose up` コマンドを利用して起動する
 
-....
+~~~
 # background execution
 $ docker-compose up -d
-....
+~~~
 
-=== Stop Docker-Compose Service
+### Stop Docker-Compose Service
 
 * Docker Composeサービスは `docker-compose stop` コマンドを利用して停止する
 
-....
+~~~
 $ docker-compose stop
-....
+~~~
 
 * サービスを停止・削除するには `docker-compose down` コマンドを利用する
 
-....
+~~~
 $ docker-compose down --volumes
-....
+~~~
 
-=== Restart Docker-Compose Service
+### Restart Docker-Compose Service
 
 * Docker Composeサービスは `docker-compose up` コマンドを利用して再起動する
 
-....
+~~~
 $ docker-compose up -d
-....
+~~~
 
-=== List Docker-Compose Service
+### List Docker-Compose Service
 
 * 起動中のDocker Composeサービスは `docker-compose ps` コマンドを利用して表示する
 
-....
+~~~
 $ docker-compose ps
-....
+~~~
 
-=== Execute Command in a Running Docker-Compose Service
+### Execute Command in a Running Docker-Compose Service
 
 * 起動中のDocker Composeサービスでコマンドを実行するには `docker-compose run` コマンドを利用する
 
-....
+~~~
 $ docker-compose run <Service> <Command>
 [Example]
 $ docker-compose run postgres env
-....
+~~~
